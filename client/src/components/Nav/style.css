@@ -1,0 +1,11 @@
+#search, #saved {
+    color: #007Bff;
+}
+
+#search:hover, #saved:hover {
+    color: #e74944;
+}
+
+#nav {
+    background-color: white;
+}
