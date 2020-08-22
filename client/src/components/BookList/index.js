@@ -8,10 +8,10 @@ export function BookListItem(props) {
     <li className="list-group-item">
       <Container>
         <Row>
-          <Col size="xs-4 sm-3">
+          <Col size="xs-4 lg-3">
             <Thumbnail src={props.thumbnail} />
           </Col>
-          <Col size="xs-8 sm-9">
+          <Col size="xs-8 lg-9">
             <h3>{props.title}</h3>
             <h5>{props.author}</h5>
             <p>{props.description}</p>

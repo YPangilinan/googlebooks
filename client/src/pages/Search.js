@@ -5,7 +5,8 @@ import Logo from "../images/logo.png";
 import { Container, Row, Col } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import "./search.css";
-import BottomNav from "../components/BottomNav";
+// import BottomNav from "../components/BottomNav";
+import BottomNavigation from '@material-ui/core/BottomNavigation';
 
 class Books extends Component {
   state = {
@@ -101,7 +102,7 @@ class Books extends Component {
             </Col>
           </Row>
       </Container>
-      <BottomNav/>
+      <BottomNavigation />
       </div>
     );
   }

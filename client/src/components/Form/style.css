@@ -1,11 +1,11 @@
-.btn {
+#formbtn {
     cursor: pointer;
     color: rgb(255, 255, 255);
     background-color: #007Bff;
-    max-width:200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
     width: 50%;
     border-radius: 25px;
 }
