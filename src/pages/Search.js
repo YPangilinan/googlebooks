@@ -60,4 +60,4 @@ export class Search extends Component {
     }
 }
 
-export default Search
+export default Search;
