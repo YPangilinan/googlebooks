@@ -18,7 +18,7 @@ export function ListItem({
   deleteBook
 }) {
   return (
-    <li className="list-group-item">
+    <li className="list-group-item" style = {{marginTop: 20, padding: 20}}>
       <Container>
         <Row>
           <Col size="xs-4 sm-3">
