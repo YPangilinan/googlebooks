@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Button from '@material-ui/core/Button';
 
 // This file exports the Input, TextArea, and FormBtn components
 
@@ -14,8 +15,8 @@ export function Input(props) {
 // Destructuring the type, className, children and onClick props, applying them to the button element
 export function FormBtn({ children, onClick }) {
   return (
-    <button onClick={onClick} style={{ marginBottom: 50 }} id="formbtn" className={"btn"}>
+    <Button variant="contained" color="primary" onClick={onClick} style={{ marginBottom: 10 }} id="formbtn" className={"btn"}>
       {children}
-    </button>
+    </Button>
   );
 }

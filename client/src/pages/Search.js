@@ -5,8 +5,7 @@ import Logo from "../images/logo.png";
 import { Container, Row, Col } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import "./search.css";
-// import BottomNav from "../components/BottomNav";
-import BottomNavigation from '@material-ui/core/BottomNavigation';
+import Paper from '@material-ui/core/Paper';
 
 class Books extends Component {
   state = {
@@ -30,79 +29,92 @@ class Books extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-      API.searchBook(this.state.search)
-        .then(res => this.setState({ books: res.data.items }))
-        .catch(err => console.log(err));
+    API.searchBook(this.state.search)
+      .then(res => this.setState({ books: res.data.items }))
+      .catch(err => console.log(err));
   };
 
   handleSavedBook = data => {
     console.log("This is the book data from handleSavedBook:")
     console.log(data);
     API.saveBook(data)
-    .then(res => alert("Your book was saved! 😄") && this.loadBooks())
+      .then(res => alert("Your book was saved! 😄") && this.loadBooks())
 
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div>
-        <img className = "img" alt= "logo" src = {Logo}/>
-      <Container fluid>
-      <Row>
-      <Col size="md-12">
-            <div>
-            <form>
-              <Input
-                value={this.state.search}
-                onChange={this.handleInputChange}
-                name="search"
-                placeholder="Begin your literary journey"
-              />
-              <FormBtn
-                disabled={!(this.state.search)}
-                onClick={this.handleFormSubmit}
-              >
-                Search
-              </FormBtn>
-            </form>
-            </div>
-            </Col>
-            </Row>
-            <Row>
+        <Container fluid>
+          <Row>
             <Col size="md-12">
               {!this.state.books.length ? (
-                <p id="message" className="text-center"></p> 
+                <React.Fragment>
+                  <img className="img" alt="logo" src={Logo} />
+                  <form>
+                    <Input
+                      value={this.state.search}
+                      onChange={this.handleInputChange}
+                      name="search"
+                      placeholder="Begin your literary journey"
+                    />
+                    <FormBtn
+                      disabled={!(this.state.search)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Search
+              </FormBtn>
+                  </form>
+                </React.Fragment>
               ) : (
-                <div>
-                  {this.state.books.map(books => {
-                    return(
-                      <BookListItem 
-                        key={books.id}
-                        title={books.volumeInfo.title}
-                        author={books.volumeInfo.authors}
-                        id={books.id}
-                        href={books.volumeInfo.previewLink}
-                        thumbnail={books.volumeInfo.imageLinks.thumbnail}
-                        description={books.volumeInfo.description}
-                        handleSavedBook={() => this.handleSavedBook({
-                          title: books.volumeInfo.title,
-                          author: books.volumeInfo.authors,
-                          id: books.id,
-                          href: books.volumeInfo.previewLink,
-                          thumbnail: books.volumeInfo.imageLinks.thumbnail,
-                          description: books.volumeInfo.description
-                        })}
-                      />    
-                  );              
-                  })}                              
-               </div>
+                  <div>
+                    <React.Fragment>
+                      <img className="newLogo" alt="logo" src={Logo} />
+                      <form>
+                        <Input
+                          value={this.state.search}
+                          onChange={this.handleInputChange}
+                          name="search"
+                          placeholder="Begin your literary journey"
+                        />
+                        <FormBtn
+                          disabled={!(this.state.search)}
+                          onClick={this.handleFormSubmit}
+                        >
+                          Search
+                        </FormBtn>
+                      </form>
+                    </React.Fragment>
+                    {this.state.books.map(books => {
+                      return (
+                        <Paper elevation={6}>
+                          <BookListItem
+                            key={books.id}
+                            title={books.volumeInfo.title}
+                            author={books.volumeInfo.authors}
+                            id={books.id}
+                            href={books.volumeInfo.previewLink}
+                            thumbnail={books.volumeInfo.imageLinks.thumbnail}
+                            description={books.volumeInfo.description}
+                            handleSavedBook={() => this.handleSavedBook({
+                              title: books.volumeInfo.title,
+                              author: books.volumeInfo.authors,
+                              id: books.id,
+                              href: books.volumeInfo.previewLink,
+                              thumbnail: books.volumeInfo.imageLinks.thumbnail,
+                              description: books.volumeInfo.description
+                            })}
+                          />
+                        </Paper>
+                      );
+                    })}
+                  </div>
 
-              )}
+                )}
             </Col>
           </Row>
-      </Container>
-      <BottomNavigation />
+        </Container>
       </div>
     );
   }

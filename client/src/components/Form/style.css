@@ -5,12 +5,15 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
-    width: 50%;
-    border-radius: 25px;
 }
 
 .btn:hover {
     color: black;
     background-color: #ffff;
+}
+
+.btn:active {
+  background-color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
