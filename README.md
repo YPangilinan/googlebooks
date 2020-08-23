@@ -41,8 +41,8 @@ The specific technologies used to create this app are:
 ## Want to run it locally?
 To install the application follow the instructions below:
 
-	git clone git@github.com:ypangilinan/news-scrape
-	cd clicky-game
+	git clone git@github.com:ypangilinan/googlebooks
+	cd googlebooks
 	npm install
 This should install the necessary packages from the Package.JSON needed for this application. 
 
