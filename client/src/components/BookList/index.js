@@ -16,10 +16,10 @@ export function BookListItem(props) {
             <h3>{props.title}</h3>
             <h5>{props.author}</h5>
             <p>{props.description}</p>
-            <Button className="btn"><a id="btn" rel="noreferrer noopener" target="_blank" href={props.href}>
+            <Button variant="contained" color="primary"className="btn"><a id="btn" rel="noreferrer noopener" target="_blank" href={props.href}>
               View Book
             </a></Button>
-            <Button className="btn" id="btn" onClick={props.handleSavedBook}>Save Book</Button>
+            <Button variant="contained" color="primary" className="btn" id="btn" onClick={props.handleSavedBook}>Save Book</Button>
           </Col>
         </Row>
       </Container>
